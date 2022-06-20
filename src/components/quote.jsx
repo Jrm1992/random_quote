@@ -1,0 +1,58 @@
+import React, { useEffect, useState } from "react";
+
+function Quote(){
+  
+  const [quote, setQuote] = useState();
+	const [name, setName] = useState();
+	const [lang, setLang] = useState('?language_code=pt');
+
+  const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '0c6ad1554dmsh9631bb0ae668e14p1da093jsn96e4166eae15',
+		'X-RapidAPI-Host': 'quotes15.p.rapidapi.com'
+	  }
+  };
+
+	const refreshPage = ()=>{
+		window.location.reload();
+ }
+
+ function handleLang(e){
+		setLang(e)
+ }
+
+	useEffect(() => {
+  	fetch(`https://quotes15.p.rapidapi.com/quotes/random/${lang}`, options)
+		.then(response => response.json())
+		.then(response => {
+			setQuote(response.content), 
+			setName(response.originator.name)
+		})
+		.catch(err => console.error(err));
+	},[lang])
+
+
+	return(
+		<div id="quote-box">
+			<div className="quote">
+				<h3 id="text">{quote}</h3>
+				<p id="author">- {name}</p>
+			</div>
+			<div className="buttons">
+				<div>
+				<button id="new-quote" onClick={refreshPage}> New Quote</button>
+				<button id="tweet-quote" href="twitter.com/intent/tweet">Tweet Quote</button>
+				</div>
+				<div>
+				<button onClick={() => handleLang("?language_code=pt")} id="pt"></button>
+				<button onClick={() => handleLang("?language_code=en")} id="en"></button>
+				<button onClick={() => handleLang("?language_code=es")} id="es"></button>
+				</div>
+			</div>
+		</div>
+	)
+
+}
+
+export default Quote;
