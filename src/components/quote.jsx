@@ -4,7 +4,7 @@ function Quote(){
   
   const [quote, setQuote] = useState();
 	const [name, setName] = useState();
-	const [lang, setLang] = useState('?language_code=pt');
+	const [lang, setLang] = useState(localStorage.getItem("lang"));	
 
   const options = {
 	method: 'GET',
@@ -19,7 +19,9 @@ function Quote(){
  }
 
  function handleLang(e){
-		setLang(e)
+	 setLang(e)
+	 localStorage.setItem('lang', `${e}`)
+	 window.location.reload();
  }
 
 	useEffect(() => {
@@ -28,26 +30,29 @@ function Quote(){
 		.then(response => {
 			setQuote(response.content), 
 			setName(response.originator.name)
+			console.log(localStorage.getItem("lang"))
 		})
 		.catch(err => console.error(err));
 	},[lang])
 
 
 	return(
-		<div id="quote-box">
-			<div className="quote">
-				<h3 id="text">{quote}</h3>
-				<p id="author">- {name}</p>
-			</div>
-			<div className="buttons">
-				<div>
-				<button id="new-quote" onClick={refreshPage}> New Quote</button>
-				<button id="tweet-quote" href="twitter.com/intent/tweet">Tweet Quote</button>
+		<div className="container">
+			<div id="quote-box">
+				<div className="quote">
+					<h3 id="text">{quote}</h3>
+					<p id="author">- {name}</p>
 				</div>
-				<div>
-				<button onClick={() => handleLang("?language_code=pt")} id="pt"></button>
-				<button onClick={() => handleLang("?language_code=en")} id="en"></button>
-				<button onClick={() => handleLang("?language_code=es")} id="es"></button>
+				<div className="buttons">
+					<div>
+					<button id="new-quote" onClick={refreshPage}> New Quote</button>
+					<button id="tweet-quote" href="twitter.com/intent/tweet">Tweet Quote</button>
+					</div>
+					<div>
+					<button onClick={() => handleLang("?language_code=pt")} id="pt"></button>
+					<button onClick={() => handleLang("?language_code=en")} id="en"></button>
+					<button onClick={() => handleLang("?language_code=es")} id="es"></button>
+					</div>
 				</div>
 			</div>
 		</div>
