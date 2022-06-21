@@ -19,12 +19,13 @@ var colors = [
   var color = colors[Math.floor(Math.random() * 11 + 1)];
 
 export const Container = styled.div`
-*{
+  *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: sans-serif ;
 }
+
   .container{ 
   background-color: ${color};
   width: 100vw;
