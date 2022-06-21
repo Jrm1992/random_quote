@@ -33,7 +33,7 @@ function Quote(){
 			console.log(localStorage.getItem("lang"))
 		})
 		.catch(err => console.error(err));
-	},[lang])
+	},[])
 
 
 	return(
