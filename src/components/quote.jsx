@@ -47,7 +47,6 @@ function Quote(){
 				<div className="buttons">
 					<div id="buttons">
 					<button id="new-quote" onClick={refreshPage}> New Quote</button>
-					<button id="tweet-quote" href="twitter.com/intent/tweet"><SiTwitter /></button>
 					</div>
 					<div>
 					<button onClick={() => handleLang("?language_code=pt")} id="pt"></button>
