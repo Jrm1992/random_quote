@@ -34,6 +34,12 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
 }
+  @media(max-width: 600px) {
+    #quote-box {
+      margin: auto auto;
+      width: 90vw !important;
+    }
+  }
   #quote-box{
   padding: 20px;
   display:flex;
@@ -53,7 +59,7 @@ export const Container = styled.div`
   position: relative;
   width: 80%;
   color: ${color};
-  font-size: 20px;
+  font-size: 3.2vh;
   padding: 10px;
 }
 
@@ -61,7 +67,7 @@ export const Container = styled.div`
   float: right;
   color: ${color};
   padding: 10px;
-  font-size: 16px;
+  font-size: 2.5vh;
 }
 #new-quote, #tweet-quote {
   background-color: ${color};
@@ -69,7 +75,7 @@ export const Container = styled.div`
   color: white;
   padding: 5px;
   text-align: center;
-  font-size: 12px;
+  font-size: 2vh;
   margin: 5px;
   width: 100px;
 }
@@ -93,17 +99,17 @@ button:hover{
 }
 #pt{
   margin-left: 20px;
-  background-image: url("https://cdn-icons.flaticon.com/png/512/5315/premium/5315340.png?token=exp=1655776207~hmac=60c041725d7175aeff322858c7c226fc");
+  background-image: url("https://flagicons.lipis.dev/flags/4x3/br.svg");
   background-size: contain;
   background-repeat: no-repeat;
 }
 #en{
-  background-image: url("https://imagepng.org/wp-content/uploads/2018/06/estados-unidos-icone-8.png");
+  background-image: url("https://flagicons.lipis.dev/flags/4x3/um.svg");
   background-size: contain;
   background-repeat: no-repeat;
 }
 #es{
-  background-image: url("https://cdn.icon-icons.com/icons2/1531/PNG/512/3253482-flag-spain-icon_106784.png");
+  background-image: url("https://flagicons.lipis.dev/flags/4x3/es.svg");
   background-size: contain;
   background-repeat: no-repeat;
 }
