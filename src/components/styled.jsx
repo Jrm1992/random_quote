@@ -25,7 +25,6 @@ export const Container = styled.div`
   box-sizing: border-box;
   font-family: sans-serif ;
 }
-
   .container{ 
   background-color: ${color};
   width: 100vw;
