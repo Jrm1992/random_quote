@@ -19,12 +19,13 @@ var colors = [
   var color = colors[Math.floor(Math.random() * 11 + 1)];
 
 export const Container = styled.div`
-*{
+  *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: sans-serif ;
 }
+
   .container{ 
   background-color: ${color};
   width: 100vw;
@@ -69,7 +70,7 @@ export const Container = styled.div`
   padding: 10px;
   font-size: 2.5vh;
 }
-#new-quote, #tweet-quote {
+#new-quote {
   background-color: ${color};
   border-radius: 10px;
   color: white;
@@ -79,11 +80,24 @@ export const Container = styled.div`
   margin: 5px;
   width: 100px;
 }
+#tweet-quote{
+  vertical-align: middle;
+  background-color: ${color};
+  border-radius: 10px;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  font-size: 2vh;
+  margin: 5px;
+  width: 35px;
+}
 button:hover{
   opacity: 0.7;
 }
-.buttons{
+#buttons{
   position: relative;
+  justify-content: center;
+  align-items: center;
 }
 .quote{
   position: relative;
