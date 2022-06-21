@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 
 var colors = [
@@ -15,7 +16,7 @@ var colors = [
   '#73A857'
 ];
 
-  var color = colors[Math.floor(Math.random() * colors.length)];
+  var color = colors[Math.floor(Math.random() * 11 + 1)];
 
 export const Container = styled.div`
 *{
@@ -24,7 +25,7 @@ export const Container = styled.div`
   box-sizing: border-box;
   font-family: sans-serif ;
 }
-  .App{ 
+  .container{ 
   background-color: ${color};
   width: 100vw;
   height: 100vh;
@@ -40,7 +41,7 @@ export const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   margin: auto auto;
-  width: 500px;
+  width: 30vw;
   min-height: 250px;
   font-size: 16px;
   background-color: #f8f8f8;
@@ -92,12 +93,18 @@ button:hover{
 }
 #pt{
   margin-left: 20px;
-  background-image: url("src/img/pt.png");
+  background-image: url("https://cdn-icons.flaticon.com/png/512/5315/premium/5315340.png?token=exp=1655776207~hmac=60c041725d7175aeff322858c7c226fc");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 #en{
-  background-image: url("src/img/en.png");
+  background-image: url("https://imagepng.org/wp-content/uploads/2018/06/estados-unidos-icone-8.png");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 #es{
-  background-image: url("src/img/es.png");
+  background-image: url("https://cdn.icon-icons.com/icons2/1531/PNG/512/3253482-flag-spain-icon_106784.png");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 `;
