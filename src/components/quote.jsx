@@ -28,12 +28,18 @@ function Quote(){
   	fetch(`https://quotes15.p.rapidapi.com/quotes/random/${lang}`, options)
 		.then(response => response.json())
 		.then(response => {
-			setQuote(response.content), 
-			setName(response.originator.name)
-			console.log(localStorage.getItem("lang"))
+			newFunction(response);
 		})
 		.catch(err => console.error(err));
 	},[])
+
+	function newFunction(response) {
+		console.log(response)
+		if(response.content !== undefined && response.content.length < 200){
+		setQuote(response.content),
+		setName(response.originator.name);
+		}
+	}
 
 
 	return(
