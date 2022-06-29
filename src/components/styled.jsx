@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 var colors = [
@@ -16,7 +15,7 @@ var colors = [
   '#73A857'
 ];
 
-  var color = colors[Math.floor(Math.random() * 11 + 1)];
+var color = colors[Math.floor(Math.random() * 11 + 1)];
 
 export const Container = styled.div`
   *{
@@ -47,7 +46,7 @@ export const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   margin: auto auto;
-  width: 30vw;
+  width: 25vw;
   min-height: 250px;
   font-size: 16px;
   background-color: #f8f8f8;
@@ -59,7 +58,7 @@ export const Container = styled.div`
   position: relative;
   width: 80%;
   color: ${color};
-  font-size: 3.2vh;
+  font-size: 2.5vh;
   padding: 10px;
 }
 
@@ -67,17 +66,18 @@ export const Container = styled.div`
   float: right;
   color: ${color};
   padding: 10px;
-  font-size: 2.5vh;
+  font-size: 2vh;
 }
 #new-quote {
   background-color: ${color};
   border-radius: 10px;
+  border: 2px solid white;
   color: white;
   padding: 5px;
   text-align: center;
-  font-size: 2vh;
+  font-size: 1.5vh;
   margin: 5px;
-  width: 100px;
+  width: 80px;
 }
 button:hover{
   opacity: 0.7;

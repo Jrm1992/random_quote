@@ -4,7 +4,9 @@ function Quote(){
   
   const [quote, setQuote] = useState('');
 	const [name, setName] = useState('');
-	const [lang, setLang] = useState(localStorage.getItem("lang"));	
+	const [lang, setLang] = useState(localStorage.getItem("lang"));
+
+	let textButton = ""
 
   const options = {
 	method: 'GET',
@@ -28,7 +30,6 @@ function Quote(){
 		fetch(`https://quotes15.p.rapidapi.com/quotes/random/${lang}`, options)
 		.then(response => response.json())
 		.then(response => {
-			console.log('fetch')
 			setQuote(response.content),
 			setName(response.originator.name);
 		})
@@ -38,6 +39,16 @@ function Quote(){
 	useEffect(() => {
 		fetchData()
 	}, [])
+
+	if(lang == "?language_code=pt"){
+		textButton = "Nova Citação"
+	}
+	if(lang == "?language_code=en"){
+		textButton = "New Quote"
+	}
+	if(lang == "?language_code=es"){
+		textButton = "Nueva Cita"
+	}
 
 
 	return(
@@ -49,7 +60,7 @@ function Quote(){
 				</div>
 				<div className="buttons">
 					<div id="buttons">
-					<button id="new-quote" onClick={refreshPage}>New Quote</button>
+					<button id="new-quote" onClick={refreshPage}>{textButton}</button>
 					</div>
 					<div>
 					<button onClick={() => handleLang("?language_code=pt")} id="pt"></button>
