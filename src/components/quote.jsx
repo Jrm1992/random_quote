@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 function Quote(){
   
-  const [quote, setQuote] = useState();
-	const [name, setName] = useState();
+  const [quote, setQuote] = useState('');
+	const [name, setName] = useState('');
 	const [lang, setLang] = useState(localStorage.getItem("lang"));	
 
   const options = {
@@ -24,22 +24,20 @@ function Quote(){
 	 window.location.reload();
  }
 
-	useEffect(() => {
-  	fetch(`https://quotes15.p.rapidapi.com/quotes/random/${lang}`, options)
+	const fetchData = useCallback(()=> {
+		fetch(`https://quotes15.p.rapidapi.com/quotes/random/${lang}`, options)
 		.then(response => response.json())
 		.then(response => {
-			newFunction(response);
+			console.log('fetch')
+			setQuote(response.content),
+			setName(response.originator.name);
 		})
 		.catch(err => console.error(err));
 	},[])
 
-	function newFunction(response) {
-		console.log(response)
-		if(response.content !== undefined && response.content.length < 200){
-		setQuote(response.content),
-		setName(response.originator.name);
-		}
-	}
+	useEffect(() => {
+		fetchData()
+	}, [])
 
 
 	return(
@@ -51,7 +49,7 @@ function Quote(){
 				</div>
 				<div className="buttons">
 					<div id="buttons">
-					<button id="new-quote" onClick={refreshPage}> New Quote</button>
+					<button id="new-quote" onClick={refreshPage}>New Quote</button>
 					</div>
 					<div>
 					<button onClick={() => handleLang("?language_code=pt")} id="pt"></button>
