@@ -4,7 +4,7 @@ function Quote(){
   
   const [quote, setQuote] = useState('');
 	const [name, setName] = useState('');
-	const [lang, setLang] = useState(localStorage.getItem("lang"));
+	const [lang, setLang] = useState(localStorage.getItem("lang") ? localStorage.getItem("lang") : "?language_code=pt" );
 
 	let textButton = ""
 
